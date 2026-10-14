@@ -18,7 +18,7 @@ def main() -> int:
         print(f"ENVIRONMENT_ERROR: input ausente em {input_file}", file=sys.stderr, flush=True)
         return 4
 
-    payload = json.loads(input_file.read_text(encoding="utf-8"))
+    payload = json.loads(input_file.read_text(encoding="utf-8-sig"))
     task_id = payload.get("task_id") or os.environ.get("COREBOT_TASK_ID")
     bot = payload.get("bot") or {}
     params = payload.get("parameters") or {}
